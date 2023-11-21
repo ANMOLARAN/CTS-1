@@ -227,7 +227,9 @@ Route::post('auth/saveData',[AuthController::class,'saveData']);
 
 use App\Http\Controllers\NotificationController;
 
-Route::get('notification/mail',[NotificationController::class,'index']);
+Route::get('notification/mail1',[NotificationController::class,'usingNotify']);
+Route::get('notification/mail2',[NotificationController::class,'usingFacade']);
 
-use App\Http\Controllers\TestQueueEmails;
-Route::get('sending-queue-emails', [TestQueueEmails::class,'sendTestEmails']);
+
+// use App\Http\Controllers\TestQueueEmails;
+// Route::get('sending-queue-emails', [TestQueueEmails::class,'sendTestEmails']);

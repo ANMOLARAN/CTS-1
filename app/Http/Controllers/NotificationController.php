@@ -15,7 +15,7 @@ class NotificationController extends Controller
 
 
 
-    public function index(){
+    public function usingNotify(){
         $student = student::find(1); // Change 1 to the student's ID you want to notify.
 
         if ($student) {
@@ -25,7 +25,23 @@ class NotificationController extends Controller
             // You can also pass additional data to the notification if needed.
             // $student->notify(new NewUserNotification($additionalData));
     
-            return 'Notification sent to the student.';
+            echo 'Notification sent to the student.',$student;
+        } else {
+            return 'Student not found.';
+        }
+    }
+
+    public function usingFacade(){
+        $student = student::find(1); // Change 1 to the student's ID you want to notify.
+
+        if ($student) {
+            // Send the notification to the student.
+            Notification::send($student,new NewUserNotification);
+    
+            // You can also pass additional data to the notification if needed.
+            // $student->notify(new NewUserNotification($additionalData));
+    
+            echo 'Notification sent to the student.',$student;
         } else {
             return 'Student not found.';
         }
